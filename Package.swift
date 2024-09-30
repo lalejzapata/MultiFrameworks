@@ -11,17 +11,18 @@ let package = Package(
             name: "MultiFrameworksPackage",
             targets: ["MultiFrameworksPackage"]
         )],
-    dependencies: [
-        .package(path: "FrameworkA/FrameworkA")
-    ],
+//    dependencies: [
+//        .package(path: "FrameworkA/FrameworkA")
+//    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "MultiFrameworksPackage",
 	    dependencies: [
-                .product(name: "FrameworkA", package: "FrameworkA")
-            ]
+                //.product(name: "FrameworkA", package: "FrameworkA")
+            ],
+        sources: ["Sources/*", "FrameworkA/*", "FrameworkB/*"]
 	),
 
     ]
