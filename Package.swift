@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "MultiFrameworksPackage",
-            targets: ["FrameworkA", "FrameworkB"]
+            targets: ["MultiFrameworks", "FrameworkA", "FrameworkB"]
         )],
 //    dependencies: [
 //        .package(path: "FrameworkA/FrameworkA")
