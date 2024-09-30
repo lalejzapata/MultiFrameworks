@@ -20,25 +20,22 @@ let package = Package(
         .target(
             name: "MultiFrameworks",
             dependencies: [
-                //.product(name: "FrameworkA", package: "FrameworkA")
+                "FrameworkA"
             ],
             path: "Sources"
-        ),
-        
-        .target(
-            name: "FrameworkB",
-            dependencies: [
-                //.product(name: "FrameworkA", package: "FrameworkA")
-            ],
-            path: "FrameworkB",
-            sources: ["FrameworkB"]
         ),
         .target(
             name: "FrameworkA",
             dependencies: [
+                "FrameworkB"
             ],
-            path: "FrameworkA",
-            sources: ["FrameworkA"]
+            path: "FrameworkA"
+        ),
+        .target(
+            name: "FrameworkB",
+            dependencies: [
+            ],
+            path: "FrameworkB"
         )
     ]
 )
