@@ -9,20 +9,33 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "MultiFrameworksPackage",
-            targets: ["MultiFrameworksPackage"]
+            targets: ["MultiFrameworks", "FrameworkA", "FrameworkB"]
         )],
-    dependencies: [
-        .package(path: "FrameworkA/FrameworkA")
-    ],
+//    dependencies: [
+//        .package(path: "FrameworkA/FrameworkA")
+//    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "MultiFrameworksPackage",
-	    dependencies: [
-                .product(name: "FrameworkA", package: "FrameworkA")
-            ]
-	),
-
+            name: "MultiFrameworks",
+            dependencies: [
+                "FrameworkA"
+            ],
+            path: "Sources"
+        ),
+        .target(
+            name: "FrameworkA",
+            dependencies: [
+                "FrameworkB"
+            ],
+            path: "FrameworkA"
+        ),
+        .target(
+            name: "FrameworkB",
+            dependencies: [
+            ],
+            path: "FrameworkB"
+        )
     ]
 )
